@@ -24,13 +24,5 @@ En este caso particular es posible que también necesiten ejecutar `ghc-pkg list
 
 En esta sección deben eliminar esta línea de texto, borrar la leyenda "Integrante n" y escribir su nombre empezando por apellidos y su número de cuenta.
 
-+ Integrante 1
-    - No. de Cuenta: 
-+ Integrante 2
-    - No. de Cuenta: 
-+ Integrante 3
-    - No. de Cuenta: 
-
-## Comentarios
-
-Recuerden que opcionalmente pueden agregar un comentario (ver los lineamientos de entrega). Si es el caso, borren esta línea y dejen su comentario.
++ Salvador Pelayo Fuentes
+    - 321233196

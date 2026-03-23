@@ -32,12 +32,30 @@ FORMAS NORMALES
 
 --Ejercicio 1
 fnn :: Prop -> Prop
-fnn = undefined
-
+fnn (Not (Cons a)) = Cons (not a)
+fnn (Not (Var p)) = Not (Var p)
+fnn (Not (Not p)) =  fnn p
+fnn (Not (And p q)) = Or (fnn (Not p)) (fnn (Not q))
+fnn (Not (Or p q)) = And (fnn (Not p)) (fnn (Not q))
+fnn (Not (Impl p q)) = And (fnn p) (fnn (Not q))
+fnn (Not (Syss p q)) = Or (And (fnn p) (fnn (Not q))) (And (fnn q) (fnn (Not p)))
+fnn (Cons a) = Cons a
+fnn (Var p) = Var p
+fnn (Not p) = Not (fnn p)
+fnn (And p q) = And (fnn p) (fnn q)
+fnn (Or p q) = Or (fnn p) (fnn q)
+fnn (Impl p q) = Or (fnn (Not p)) (fnn q)
+fnn (Syss p q) = And (Or (fnn (Not p)) (fnn q)) (Or (fnn (Not q)) (fnn p))
 
 --Ejercicio 2
 fnc :: Prop -> Prop
-fnc = undefined
+fnc (Cons a) = Cons a
+fnc (Var p) = Var p
+fnc (Not (Var p)) = Not (Var p)
+fnc (Not p) = Not p
+fnc (Not (Not p)) = fnc p
+fnc (And p q) = And (fnc p) (fnc q)
+fnc (Not (And p q)) = Or (fnc p) (fnc q)
 
 {-
 RESOLUCION BINARIA
